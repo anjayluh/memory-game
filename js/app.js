@@ -1,10 +1,8 @@
-/*
- * Create a list that holds all of your cards
- */
+//list holding all cards
 let card = document.getElementsByClassName("card");
 let cards = [...card];
 
-// declaring move variable
+// declaring move variable to keep count of moves
 let moves = 0;
 let counter = document.querySelector(".moves");
 
@@ -34,7 +32,7 @@ let second = 0,
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
+//TODO: Display cards
 function displayCard() {
     this.classList.toggle('open');
     this.classList.toggle('show');
@@ -45,6 +43,7 @@ for (let currentCard = 0; currentCard < cards.length; currentCard++) {
     //event to listen to click and display card function
     cards[currentCard].addEventListener('click', displayCard);
     cards[currentCard].addEventListener('click', compareCard);
+    cards[currentCard].addEventListener("click", congratulations);
 };
 
 
@@ -102,14 +101,16 @@ window.onload = startGame();
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-//OpenedCards is an array that I add an opened pair of cards to and compare them.
+//TODO: Compare a pair of opened cards to see if they are a match or not
 function compareCard() {
     openedCards.push(this);
     var len = openedCards.length;
     if (len === 2) {
         let carda = openedCards[0].firstElementChild;
         let cardb = openedCards[1].firstElementChild;
+        //Add on the count of moves for every selection of two cards
         moveCounter();
+        //Comparison if the value of card one is the same as that of card2
         if (carda.classList.value === cardb.classList.value) {
             matchCards();
         } else {
@@ -118,7 +119,7 @@ function compareCard() {
     }
 };
 
-//for when cards match
+//TODO: Add two matching cards to the openedCards array and leave them open
 function matchCards() {
     openedCards[0].classList.add("match");
     openedCards[1].classList.add("match");
@@ -126,7 +127,7 @@ function matchCards() {
     openedCards[1].classList.remove("show", "open");
     openedCards = [];
 }
-//for when cards don't match
+//TODO: Flip back a pair of cards that doesn't match
 function unmatchCards() {
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
@@ -139,14 +140,14 @@ function unmatchCards() {
     }, 1100);
 }
 
-//disable cards temporarily
+//TODO: Disable cards temporarily to decide if they match or not
 function disable() {
     Array.prototype.filter.call(cards, function(card) {
         card.classList.add('disabled');
     });
 }
 
-//enable cards and disable matched cards
+//TODO: Re-enable unmatched cards and disable matched cards
 function enable() {
     Array.prototype.filter.call(cards, function(card) {
         card.classList.remove('disabled');
@@ -156,7 +157,7 @@ function enable() {
     });
 }
 
-//Increment move counter
+//TODO: Increment move counter
 function moveCounter() {
     moves++;
     counter.innerHTML = moves;
@@ -184,8 +185,7 @@ function moveCounter() {
     }
 }
 
-// Time taken to complete the game
-
+// TODO: Calculate and display the time taken to complete the game
 let timer = document.querySelector(".timer");
 
 function startTimer() {
@@ -203,13 +203,13 @@ function startTimer() {
     }, 1000);
 }
 
-//pop up a congragulations message when all cards are turned and matched
+//TODO: Display a pop up congragulations message when all cards are turned and matched
 function congratulations() {
     if (matchedCard.length == 16) {
         clearInterval(startTimer.interval);
         finalTime = timer.innerHTML;
 
-        // show congratulations modal
+        //TODO: Show congratulations modal
         modal.classList.add("show");
 
         // declare star rating variable
@@ -226,18 +226,10 @@ function congratulations() {
 }
 
 
-// Close the congratulations modal
+//TODO: Close the congratulations modal
 function closeModal() {
     closeicon.addEventListener("click", function(e) {
         modal.classList.remove("show");
         startGame();
     });
 }
-
-// loop to add event listeners to each card
-for (var i = 0; i < cards.length; i++) {
-    card = cards[i];
-    card.addEventListener("click", displayCard);
-    card.addEventListener("click", compareCard);
-    card.addEventListener("click", congratulations);
-};

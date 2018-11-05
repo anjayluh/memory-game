@@ -3,7 +3,7 @@ Memory game is a game built for fun and to master `HTML`, `CSS`, and `JavaScript
 
 It is a complete browser-based card matching game (also known as Concentration). But this isn’t just any memory game! It’s a shnazzy, well-designed, feature-packed memory game!
 
-The game itself built entirely with JavaScript, so you can just drop it into your site / app into any element you like. I built this game as one of my FEND (Front-end NanoDegree) projects. It's a responsive fully browser oriented game that should work on any device on the browser.
+The game itself built entirely with JavaScript, so you can contribute to it if you would like to :). I built this game as one of my FEND (Front-end NanoDegree) projects. It's a responsive fully browser oriented game that should work on any device on the browser.
 
 ## Table of Contents
 

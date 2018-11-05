@@ -12,7 +12,7 @@ The game itself built entirely with JavaScript, so you can contribute to it if y
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a an interactive one. A working demo can be seen here - (#))
+The starter project has some HTML and CSS styling to display a an interactive one.
 
 To run the project locally, open the root directory and open index.html which will launch in your default browser such as `chrome`, `ms edge` or `firefox` then you will be able to play the game.
 
